@@ -46,9 +46,21 @@ body {
     cursor: url(/assets/images/cursor/light-saber-cursor.png), auto;
 }
 
-p {
+p,
+li {
     font-family: 'ITC Serif Gothic', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    margin-block: 1rem;
+}
+
+ul {
+    list-style: url(/assets/images/fighter.png);
+    list-style-position: inside;
+}
+
+img {
+    display: block;
+    width: 100%;
 }
 
 header {
@@ -70,10 +82,6 @@ header h1 {
     text-transform: lowercase;
     font-size: 4rem;
     color: var(--jedi-yellow);
-}
-
-header p {
-    font-size: 1.2rem;
 }
 
 section {
@@ -105,7 +113,7 @@ section.solar-system-overview::before {
     background-size: cover;
     z-index: 9999;
 
-    animation: hover-animation 5s ease-in-out infinite;
+    animation: hover-animation 2s ease-in-out infinite;
 }
 
 @keyframes hover-animation {
@@ -128,8 +136,7 @@ section.solar-system-overview::after {
     background-image: url(/assets/images/star-destroyer.png);
     background-size: cover;
     z-index: 9999;
-    animation:
-        star-destroyer-move 10s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    animation: star-destroyer-move 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
 @keyframes star-destroyer-move {
@@ -158,4 +165,75 @@ section.solar-system-overview p {
     max-width: var(--section-max-width);
     margin-inline: auto;
     line-height: 2;
+}
+
+section.planets h2 {
+    font-family: 'Star Wars', sans-serif;
+    color: var(--jedi-yellow);
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.planet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: var(--section-max-width);
+    margin-inline: auto;
+    margin-block: 7rem;
+    gap: 2rem;
+}
+
+.planet h3 {
+    font-family: 'Star Wars Outline', sans-serif;
+    text-transform: lowercase;
+    color: var(--jedi-yellow);
+    font-size: 3.4rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.planet p {
+    margin-block: 1em;
+    text-indent: 1em;
+    line-height: 1.3;
+}
+
+.planet img {
+    animation: hover-animation 5s ease-in-out infinite;
+    margin-left: auto;
+}
+
+.mercury img {
+    max-width: calc(calc(147 / 16) * 1rem);
+}
+
+.venus img,
+.earth img {
+    max-width: calc(calc(347 / 16) * 1rem);
+}
+
+.mars img {
+    max-width: calc(calc(190 / 16) * 1rem);
+}
+
+.asteroid-belt {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.asteroid-belt canvas {
+    position: block;
+    width: 100%;
+    height: 100%;
+}
+
+.uranus img {
+    max-width: calc(calc(500 / 16) * 1rem);
+}
+
+.neptune img {
+    max-width: calc(calc(500 / 16) * 1rem);
 }
