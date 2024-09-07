@@ -1,5 +1,7 @@
 :root {
     --section-max-width: calc(calc(1400 / 16) * 1rem);
+    --jedi-yellow: hsl(54, 100%, 56%);
+    --jedi-black: hsl(0, 0%, 0%);
 }
 
 @font-face {
@@ -60,7 +62,7 @@ header h1 {
     font-family: 'Star Wars Outline', sans-serif;
     text-transform: lowercase;
     font-size: 4rem;
-    color: hsl(54, 100%, 56%);
+    color: var(--jedi-yellow);
 }
 
 header p {
@@ -142,7 +144,7 @@ section.solar-system-overview h2 {
     font-size: 3rem;
     font-family: 'Star Wars', sans-serif;
     text-transform: lowercase;
-    color: hsl(54, 100%, 56%);
+    color: var(--jedi-yellow);
 }
 
 section.solar-system-overview p {
