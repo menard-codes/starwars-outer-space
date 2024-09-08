@@ -36,7 +36,7 @@ function insertAsteroidBelt() {
     const asteroids = [];
     const speedFactor = 0.2;
     const asteroidImage = new Image();
-    asteroidImage.src = '/assets/images/Asteroid.png';
+    asteroidImage.src = '/starwars-outer-space/assets/images/Asteroid.png';
 
     const resizeCanvas = () => {
         canvas.width = asteroidBelt.clientWidth;
@@ -132,67 +132,67 @@ function insertBorderImages(containerName, imgSrc) {
     container.insertAdjacentElement('afterend', imgBorderContainer);
 }
 
-insertBorderImages('planets', '/assets/images/fighter-1.png');
-insertBorderImages('moons', '/assets/images/storm-trooper.png');
+insertBorderImages('planets', '/starwars-outer-space/assets/images/fighter-1.png');
+insertBorderImages('moons', '/starwars-outer-space/assets/images/storm-trooper.png');
 
-setFavicon('/assets/images/storm-trooper.png');
+setFavicon('/starwars-outer-space/assets/images/storm-trooper.png');
 
 const celestialBodies = [
     {
         name: 'mercury',
-        imgSrc: '/assets/images/planets/mercury.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/mercury.png'
     },
     {
         name: 'venus',
-        imgSrc: '/assets/images/planets/venus.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/venus.png'
     },
     {
         name: 'earth',
-        imgSrc: '/assets/images/planets/earth.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/earth.png'
     },
     {
         name: 'mars',
-        imgSrc: '/assets/images/planets/mars.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/mars.png'
     },
     {
         name: 'jupiter',
-        imgSrc: '/assets/images/planets/jupiter.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/jupiter.png'
     },
     {
         name: 'saturn',
-        imgSrc: '/assets/images/planets/saturn.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/saturn.png'
     },
     {
         name: 'uranus',
-        imgSrc: '/assets/images/planets/uranus.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/uranus.png'
     },
     {
         name: 'neptune',
-        imgSrc: '/assets/images/planets/neptune.png'
+        imgSrc: '/starwars-outer-space/assets/images/planets/neptune.png'
     },
     {
         name: 'moon',
-        imgSrc: '/assets/images/moons/moon.png'
+        imgSrc: '/starwars-outer-space/assets/images/moons/moon.png'
     },
     {
         name: 'titan',
-        imgSrc: '/assets/images/moons/titan.png'
+        imgSrc: '/starwars-outer-space/assets/images/moons/titan.png'
     },
     {
         name: 'europa',
-        imgSrc: '/assets/images/moons/europa.png'
+        imgSrc: '/starwars-outer-space/assets/images/moons/europa.png'
     },
     {
         name: 'asteroid-belt',
-        imgSrc: '/assets/images/other-objects/asteroid-belt.png'
+        imgSrc: '/starwars-outer-space/assets/images/other-objects/asteroid-belt.png'
     },
     {
         name: 'comets',
-        imgSrc: '/assets/images/other-objects/comet.png'
+        imgSrc: '/starwars-outer-space/assets/images/other-objects/comet.png'
     },
     {
         name: 'kuiper-belt',
-        imgSrc: '/assets/images/other-objects/kuiper-belt.png'
+        imgSrc: '/starwars-outer-space/assets/images/other-objects/kuiper-belt.png'
     }
 ]
 
