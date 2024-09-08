@@ -1,26 +1,26 @@
 
-function formatPlanet(planetName, planetImgSrc) {
-    const planetContainer = document.querySelector(`.${planetName}`);
+function formatCelestialBodies(celestialBodyName, celestialBodyImgSrc) {
+    const container = document.querySelector(`.${celestialBodyName}`);
 
     // Create the image element
-    const planetImg = document.createElement('img');
-    planetImg.alt = `Planet ${planetName} in 8-bit`;
-    planetImg.src = planetImgSrc;
+    const img = document.createElement('img');
+    img.alt = `Planet ${celestialBodyName} in 8-bit`;
+    img.src = celestialBodyImgSrc;
 
     // Create a new div to wrap the existing content
     const contentDiv = document.createElement('div');
 
-    // Move all existing children of planetContainer into the new contentDiv
-    while (planetContainer.firstChild) {
-        contentDiv.appendChild(planetContainer.firstChild);
+    // Move all existing children of container into the new contentDiv
+    while (container.firstChild) {
+        contentDiv.appendChild(container.firstChild);
     }
 
-    // Clear the planetContainer
-    planetContainer.innerHTML = '';
+    // Clear the container
+    container.innerHTML = '';
 
-    // Append the new image and content div to planetContainer
-    planetContainer.appendChild(planetImg);
-    planetContainer.appendChild(contentDiv);
+    // Append the new image and content div to container
+    container.appendChild(img);
+    container.appendChild(contentDiv);
 }
 
 function insertAsteroidBelt() {
@@ -113,46 +113,90 @@ function setFavicon(url) {
     // Append the new favicon to the document head
     document.head.appendChild(link);
 }
-  
-// Usage
+
+function insertBorderImages(containerName, imgSrc) {
+    const container = document.querySelector(`.${containerName}`);
+
+    const images = [];
+    Array.from({length: 8}).forEach(_ => {
+        const img = new Image();
+        img.setAttribute('role', 'presentation');
+        img.src = imgSrc;
+        images.push(img);
+    });
+
+    const imgBorderContainer = document.createElement('div');
+    imgBorderContainer.classList.add('img-border-container');
+    images.forEach(img => imgBorderContainer.appendChild(img));
+
+    container.insertAdjacentElement('afterend', imgBorderContainer);
+}
+
+insertBorderImages('planets', '/assets/images/fighter-1.png');
+insertBorderImages('moons', '/assets/images/storm-trooper.png')
+
 setFavicon('/assets/images/storm-trooper.png');
 
-const planets = [
+const celestialBodies = [
     {
-        planetName: 'mercury',
+        name: 'mercury',
         imgSrc: '/assets/images/planets/mercury.png'
     },
     {
-        planetName: 'venus',
+        name: 'venus',
         imgSrc: '/assets/images/planets/venus.png'
     },
     {
-        planetName: 'earth',
+        name: 'earth',
         imgSrc: '/assets/images/planets/earth.png'
     },
     {
-        planetName: 'mars',
+        name: 'mars',
         imgSrc: '/assets/images/planets/mars.png'
     },
     {
-        planetName: 'jupiter',
+        name: 'jupiter',
         imgSrc: '/assets/images/planets/jupiter.png'
     },
     {
-        planetName: 'saturn',
+        name: 'saturn',
         imgSrc: '/assets/images/planets/saturn.png'
     },
     {
-        planetName: 'uranus',
+        name: 'uranus',
         imgSrc: '/assets/images/planets/uranus.png'
     },
     {
-        planetName: 'neptune',
+        name: 'neptune',
         imgSrc: '/assets/images/planets/neptune.png'
+    },
+    {
+        name: 'moon',
+        imgSrc: '/assets/images/moons/moon.png'
+    },
+    {
+        name: 'titan',
+        imgSrc: '/assets/images/moons/titan.png'
+    },
+    {
+        name: 'europa',
+        imgSrc: '/assets/images/moons/europa.png'
+    },
+    {
+        name: 'asteroid-belt',
+        imgSrc: '/assets/images/other-objects/asteroid-belt.png'
+    },
+    {
+        name: 'comets',
+        imgSrc: '/assets/images/other-objects/comet.png'
+    },
+    {
+        name: 'kuiper-belt',
+        imgSrc: '/assets/images/other-objects/kuiper-belt.png'
     }
 ]
 
 // format the planets to insert the images and re-layout the elements
-planets.forEach(({ planetName, imgSrc }) => formatPlanet(planetName, imgSrc));
+celestialBodies.forEach(({ name, imgSrc }) => formatCelestialBodies(name, imgSrc));
 
 insertAsteroidBelt();

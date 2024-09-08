@@ -88,6 +88,35 @@ section {
     min-height: 100vh;
 }
 
+.img-border-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 5rem;
+    padding: 5rem;
+}
+
+.img-border-container img {
+    animation: teeter 2s ease-in-out infinite;
+}
+
+@keyframes teeter {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
 section.solar-system-overview {
     display: grid;
     place-content: center;
@@ -167,15 +196,20 @@ section.solar-system-overview p {
     line-height: 2;
 }
 
-section.planets h2 {
+section.planets h2,
+section.moons h2,
+section.solar-system-objects h2 {
     font-family: 'Star Wars', sans-serif;
     color: var(--jedi-yellow);
     font-size: 3rem;
     text-align: center;
     padding: 2rem;
+    text-transform: lowercase;
 }
 
-.planet {
+.planet,
+.moon,
+.solar-system-objects > article {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -185,7 +219,9 @@ section.planets h2 {
     gap: 2rem;
 }
 
-.planet h3 {
+.planet h3,
+.moon h3,
+.solar-system-objects h3 {
     font-family: 'Star Wars Outline', sans-serif;
     text-transform: lowercase;
     color: var(--jedi-yellow);
@@ -194,15 +230,23 @@ section.planets h2 {
     text-underline-offset: 0.2em;
 }
 
-.planet p {
+.planet p,
+.moon p,
+.solar-system-objects p {
     margin-block: 1em;
     text-indent: 1em;
     line-height: 1.3;
 }
 
-.planet img {
+.planet img,
+.moon img,
+.solar-system-objects img {
     animation: hover-animation 5s ease-in-out infinite;
     margin-left: auto;
+}
+
+.solar-system-objects img {
+    border-radius: 3rem;
 }
 
 .mercury img {
@@ -236,4 +280,35 @@ section.planets h2 {
 
 .neptune img {
     max-width: calc(calc(500 / 16) * 1rem);
+}
+
+section.moons,
+section.solar-system-objects {
+    max-width: var(--section-max-width);
+    margin-inline: auto;
+}
+
+.earth-moon img {
+    max-width: calc(calc(127 / 16) * 1rem);
+}
+
+.titan img {
+    max-width: calc(calc(187 / 16) * 1rem);
+}
+
+.europa img {
+    max-width: calc(calc(120 / 16) * 1rem);
+}
+
+footer {
+    padding: 5rem;
+    background-image: url(/assets/images/space-8bit-bg.jpg);
+    background-size: 100px;
+    display: grid;
+    place-content: center;
+    color: var(--jedi-yellow);
+}
+
+footer p {
+    font-size: 1.2rem;
 }
