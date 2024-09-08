@@ -200,3 +200,35 @@ const celestialBodies = [
 celestialBodies.forEach(({ name, imgSrc }) => formatCelestialBodies(name, imgSrc));
 
 insertAsteroidBelt();
+
+/* ################ */
+/* Styling the word `Earth` in overview */
+// Select the paragraph element
+const paragraph = document.querySelector('.solar-system-overview p');
+
+// Get the text content of the paragraph
+const text = paragraph.textContent;
+
+// Find the last word
+const lastWord = text.trim().split(' ').pop();
+
+// Create a new text node with the content up to the last word
+const textWithoutLastWord = text.slice(0, -lastWord.length).trim();
+const textNode = document.createTextNode(textWithoutLastWord + ' ');
+
+// Create a span element for the last word
+const span = document.createElement('span');
+span.textContent = lastWord;
+span.style.display = 'inline-block';
+span.style.color = 'hsl(54, 100%, 56%)';
+span.style.fontSize = '2rem';
+span.style.fontFamily = 'Star Wars Outline';
+span.style.marginLeft = '0.5em';
+span.style.textDecoration = 'underline';
+span.style.textUnderlineOffset = '0.2em';
+
+// Clear the paragraph and append the new nodes
+paragraph.innerHTML = '';
+paragraph.appendChild(textNode);
+paragraph.appendChild(span);
+/* ################ */
