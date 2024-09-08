@@ -133,7 +133,7 @@ function insertBorderImages(containerName, imgSrc) {
 }
 
 insertBorderImages('planets', '/assets/images/fighter-1.png');
-insertBorderImages('moons', '/assets/images/storm-trooper.png')
+insertBorderImages('moons', '/assets/images/storm-trooper.png');
 
 setFavicon('/assets/images/storm-trooper.png');
 

@@ -72,9 +72,10 @@ header {
     position: relative;
     isolation: isolate;
 
-    background-image: url(/assets/images/space-bg.jpg);
+    background-image: url(/assets/images/space-bg-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
 }
 
 header h1 {
@@ -82,6 +83,10 @@ header h1 {
     text-transform: lowercase;
     font-size: 4rem;
     color: var(--jedi-yellow);
+    background-color: var(--jedi-black);
+    border-radius: 2rem;
+    padding-bottom: 0.1em;
+    padding-inline: 0.5em;
 }
 
 section {
@@ -89,14 +94,17 @@ section {
 }
 
 .img-border-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 5rem;
     padding: 5rem;
 }
 
 .img-border-container img {
     animation: teeter 2s ease-in-out infinite;
+    flex: 0 0 auto;
+    width: 85px; /* or whatever size you want for the images */
 }
 
 @keyframes teeter {
@@ -211,12 +219,25 @@ section.solar-system-objects h2 {
 .moon,
 .solar-system-objects > article {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-content: center;
     align-items: center;
     max-width: var(--section-max-width);
     margin-inline: auto;
     margin-block: 7rem;
     gap: 2rem;
+}
+
+@media screen and (min-width: 1020px) {
+    .planet,
+    .moon,
+    .solar-system-objects > article {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        margin-block: 7rem;
+        gap: 2rem;
+    }
+
 }
 
 .planet h3,
@@ -242,7 +263,15 @@ section.solar-system-objects h2 {
 .moon img,
 .solar-system-objects img {
     animation: hover-animation 5s ease-in-out infinite;
-    margin-left: auto;
+    margin: auto;
+}
+
+@media screen and (min-width: 1020px) {
+    .planet img,
+    .moon img,
+    .solar-system-objects img {
+        margin-left: auto;
+    }
 }
 
 .solar-system-objects img {
@@ -307,6 +336,7 @@ footer {
     display: grid;
     place-content: center;
     color: var(--jedi-yellow);
+    text-align: center;
 }
 
 footer p {
