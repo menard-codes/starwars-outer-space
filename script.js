@@ -196,7 +196,7 @@ const celestialBodies = [
     }
 ]
 
-// format the planets to insert the images and re-layout the elements
+// format the celestial bodies to insert the images and re-layout the elements
 celestialBodies.forEach(({ name, imgSrc }) => formatCelestialBodies(name, imgSrc));
 
 insertAsteroidBelt();
