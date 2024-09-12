@@ -329,6 +329,10 @@ section.solar-system-objects {
     max-width: calc(calc(120 / 16) * 1rem);
 }
 
+section.solar-system-objects > article {
+    height: 100%;
+}
+
 footer {
     padding: 5rem;
     background-image: url(/starwars-outer-space/assets/images/space-8bit-bg.jpg);
