@@ -36,7 +36,7 @@ function insertAsteroidBelt() {
     const asteroids = [];
     const speedFactor = 0.2;
     const asteroidImage = new Image();
-    asteroidImage.src = '/starwars-outer-space/assets/images/Asteroid.png';
+    asteroidImage.src = getImgSrc('/assets/images/Asteroid.png');
 
     const resizeCanvas = () => {
         canvas.width = asteroidBelt.clientWidth;
@@ -132,67 +132,79 @@ function insertBorderImages(containerName, imgSrc) {
     container.insertAdjacentElement('afterend', imgBorderContainer);
 }
 
-insertBorderImages('planets', '/starwars-outer-space/assets/images/fighter-1.png');
-insertBorderImages('moons', '/starwars-outer-space/assets/images/storm-trooper.png');
+// utils
 
-setFavicon('/starwars-outer-space/assets/images/storm-trooper.png');
+function isLocalhost() {
+    return window.location.hostname === "localhost" || 
+           window.location.hostname === "127.0.0.1" ||
+           window.location.hostname === "[::1]";
+}
+
+function getImgSrc(baseSrc) {
+    return isLocalhost() ? baseSrc : '/starwars-outer-space/' + baseSrc;
+}
+
+insertBorderImages('planets', getImgSrc('/assets/images/fighter-1.png'));
+insertBorderImages('moons', getImgSrc('/assets/images/storm-trooper.png'));
+
+setFavicon(getImgSrc('/assets/images/storm-trooper.png'));
 
 const celestialBodies = [
     {
         name: 'mercury',
-        imgSrc: '/starwars-outer-space/assets/images/planets/mercury.png'
+        imgSrc: getImgSrc('/assets/images/planets/mercury.png')
     },
     {
         name: 'venus',
-        imgSrc: '/starwars-outer-space/assets/images/planets/venus.png'
+        imgSrc: getImgSrc('/assets/images/planets/venus.png')
     },
     {
         name: 'earth',
-        imgSrc: '/starwars-outer-space/assets/images/planets/earth.png'
+        imgSrc: getImgSrc('/assets/images/planets/earth.png')
     },
     {
         name: 'mars',
-        imgSrc: '/starwars-outer-space/assets/images/planets/mars.png'
+        imgSrc: getImgSrc('/assets/images/planets/mars.png')
     },
     {
         name: 'jupiter',
-        imgSrc: '/starwars-outer-space/assets/images/planets/jupiter.png'
+        imgSrc: getImgSrc('/assets/images/planets/jupiter.png')
     },
     {
         name: 'saturn',
-        imgSrc: '/starwars-outer-space/assets/images/planets/saturn.png'
+        imgSrc: getImgSrc('/assets/images/planets/saturn.png')
     },
     {
         name: 'uranus',
-        imgSrc: '/starwars-outer-space/assets/images/planets/uranus.png'
+        imgSrc: getImgSrc('/assets/images/planets/uranus.png')
     },
     {
         name: 'neptune',
-        imgSrc: '/starwars-outer-space/assets/images/planets/neptune.png'
+        imgSrc: getImgSrc('/assets/images/planets/neptune.png')
     },
     {
         name: 'moon',
-        imgSrc: '/starwars-outer-space/assets/images/moons/moon.png'
+        imgSrc: getImgSrc('/assets/images/moons/moon.png')
     },
     {
         name: 'titan',
-        imgSrc: '/starwars-outer-space/assets/images/moons/titan.png'
+        imgSrc: getImgSrc('/assets/images/moons/titan.png')
     },
     {
         name: 'europa',
-        imgSrc: '/starwars-outer-space/assets/images/moons/europa.png'
+        imgSrc: getImgSrc('/assets/images/moons/europa.png')
     },
     {
         name: 'asteroid-belt',
-        imgSrc: '/starwars-outer-space/assets/images/other-objects/asteroid-belt.png'
+        imgSrc: getImgSrc('/assets/images/other-objects/asteroid-belt.jpeg')
     },
     {
         name: 'comets',
-        imgSrc: '/starwars-outer-space/assets/images/other-objects/comet.png'
+        imgSrc: getImgSrc('/assets/images/other-objects/comet.jpeg')
     },
     {
         name: 'kuiper-belt',
-        imgSrc: '/starwars-outer-space/assets/images/other-objects/kuiper-belt.png'
+        imgSrc: getImgSrc('/assets/images/other-objects/kuiper-belt.jpeg')
     }
 ]
 
@@ -232,3 +244,82 @@ paragraph.innerHTML = '';
 paragraph.appendChild(textNode);
 paragraph.appendChild(span);
 /* ################ */
+
+/* ################ */
+/* CSS URL */ 
+// Replace font URLs and set font families
+const fontStyles = `
+  @font-face {
+    font-family: 'Star Wars';
+    font-style: normal;
+    src: url('${getImgSrc('/assets/fonts/StarJediRounded-jW3R.woff')}') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Star Wars Outline';
+    font-style: normal;
+    src: url('${getImgSrc('/assets/fonts/Starjhol.woff')}') format('woff');
+  }
+
+  @font-face {
+    font-family: 'ITC Serif Gothic';
+    font-style: normal;
+    src: url('${getImgSrc('/assets/fonts/ITC SerifGothic.woff')}') format('woff');
+  }
+
+  p, li {
+    font-family: 'ITC Serif Gothic', sans-serif;
+  }
+
+  header h1 {
+    font-family: 'Star Wars Outline', sans-serif;
+  }
+
+  section.solar-system-overview h2,
+  section.planets h2,
+  section.moons h2,
+  section.solar-system-objects h2 {
+    font-family: 'Star Wars', sans-serif;
+  }
+
+  .planet h3,
+  .moon h3,
+  .solar-system-objects h3 {
+    font-family: 'Star Wars Outline', sans-serif;
+  }
+`;
+
+const fontStyleElement = document.createElement('style');
+fontStyleElement.textContent = fontStyles;
+document.head.appendChild(fontStyleElement);
+
+// Replace list style image
+const listStyleStyles = `
+  ul {
+    list-style-image: url('${getImgSrc('/assets/images/fighter.png')}');
+  }
+`;
+const listStyleElement = document.createElement('style');
+listStyleElement.textContent = listStyleStyles;
+document.head.appendChild(listStyleElement);
+
+// Replace background images
+document.querySelector('header').style.backgroundImage = `url('${getImgSrc('/assets/images/space-bg-1.jpg')}')`;
+document.querySelector('section.solar-system-overview').style.backgroundImage = `url('${getImgSrc('/assets/images/space-8bit-bg.jpg')}')`;
+document.querySelector('footer').style.backgroundImage = `url('${getImgSrc('/assets/images/space-8bit-bg.jpg')}')`;
+
+// Replace pseudo-element background images
+const pseudoElementStyles = `
+  section.solar-system-overview::before {
+    background-image: url('${getImgSrc('/assets/images/death-star.png')}');
+  }
+  section.solar-system-overview::after {
+    background-image: url('${getImgSrc('/assets/images/star-destroyer.png')}');
+  }
+`;
+const pseudoStyleElement = document.createElement('style');
+pseudoStyleElement.textContent = pseudoElementStyles;
+document.head.appendChild(pseudoStyleElement);
+
+// Set cursor style
+document.body.style.cursor = `url(${getImgSrc('/assets/images/cursor/light-saber-cursor.png')}), auto`;
