@@ -93,6 +93,10 @@ section {
     min-height: 100vh;
 }
 
+article {
+    padding-inline: 0.5rem;
+}
+
 .img-border-container {
     display: flex;
     flex-wrap: wrap;
@@ -132,6 +136,7 @@ section.solar-system-overview {
     text-align: center;
 
     position: relative;
+    isolation: isolate;
 
     background-image: url(/starwars-outer-space/assets/images/space-8bit-bg.jpg);
     background-size: 100px;
@@ -148,7 +153,7 @@ section.solar-system-overview::before {
     height: 210px;
     background-image: url(/starwars-outer-space/assets/images/death-star.png);
     background-size: cover;
-    z-index: 9999;
+    z-index: -9999;
 
     animation: hover-animation 2s ease-in-out infinite;
 }
@@ -249,6 +254,15 @@ section.solar-system-objects h2 {
     font-size: 3.4rem;
     text-decoration: underline;
     text-underline-offset: 0.2em;
+    text-align: center;
+}
+
+@media screen and (min-width: 1020px) {
+    .planet h3,
+    .moon h3,
+    .solar-system-objects h3 {
+        text-align: left;
+    }
 }
 
 .planet p,
