@@ -4,7 +4,7 @@ function formatCelestialBodies(celestialBodyName, celestialBodyImgSrc) {
 
     // Create the image element
     const img = document.createElement('img');
-    img.alt = `Planet ${celestialBodyName} in 8-bit`;
+    img.alt = `${celestialBodyName} in 8-bit`;
     img.src = celestialBodyImgSrc;
 
     // Create a new div to wrap the existing content
