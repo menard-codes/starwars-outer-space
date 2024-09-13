@@ -72,21 +72,56 @@ header {
     position: relative;
     isolation: isolate;
 
-    background-image: url(/starwars-outer-space/assets/images/space-bg-1.jpg);
+    background-image: url(/starwars-outer-space/assets/images/space-bg-1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     text-align: center;
 }
 
+header::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: hsla(0, 0%, 0%, 0.4);
+    z-index: -1;
+}
+
 header h1 {
-    font-family: 'Star Wars Outline', sans-serif;
+    text-shadow: 0 0 4px black;
     text-transform: lowercase;
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--jedi-yellow);
-    background-color: var(--jedi-black);
+    background-color: hsla(0, 0%, 0%, 0.8);
     border-radius: 2rem;
-    padding-bottom: 0.1em;
-    padding-inline: 0.5em;
+    margin-inline: 0.2rem;
+    max-width: 1020px;
+}
+
+@media screen and (min-width: 1020px) {
+    header h1 {
+        font-size: 6rem;
+        margin-inline: auto;
+    }
+}
+
+header p {
+    padding: 0.4em 0.2em;
+    margin-inline: 0.2rem;
+    border-radius: 0.4em;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+
+@media screen and (min-width: 1020px) {
+    header p {
+        margin-inline: auto;
+        padding: 0.1em 0.2em;
+        font-size: 1.5rem;
+    }
 }
 
 section {
@@ -98,12 +133,19 @@ article {
 }
 
 .img-border-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5rem;
-    padding: 5rem;
+    display: none;
 }
+
+@media screen and (min-width: 1020px) {
+    .img-border-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5rem;
+        padding: 5rem;
+    }
+}
+
 
 .img-border-container img {
     animation: teeter 2s ease-in-out infinite;
@@ -141,6 +183,8 @@ section.solar-system-overview {
     background-image: url(/starwars-outer-space/assets/images/space-8bit-bg.jpg);
     background-size: 100px;
     overflow: hidden;
+
+    padding: 2rem 0.5rem;
 }
 
 /* Death Star */
@@ -177,7 +221,7 @@ section.solar-system-overview::after {
     width: 500px;
     background-image: url(/starwars-outer-space/assets/images/star-destroyer.png);
     background-size: cover;
-    z-index: 9999;
+    z-index: -9999;
     animation: star-destroyer-move 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
@@ -229,7 +273,7 @@ section.solar-system-objects h2 {
     align-items: center;
     max-width: var(--section-max-width);
     margin-inline: auto;
-    margin-block: 7rem;
+    margin-block: 2rem;
     gap: 2rem;
 }
 
@@ -306,10 +350,18 @@ section.solar-system-objects h2 {
 }
 
 .asteroid-belt {
-    width: 100%;
-    height: 400px;
-    position: relative;
+    display: none;
 }
+
+@media screen and (min-width: 1020px) {
+    .asteroid-belt {
+        display: block;
+        width: 100%;
+        height: 400px;
+        position: relative;
+    }
+}
+
 
 .asteroid-belt canvas {
     position: block;

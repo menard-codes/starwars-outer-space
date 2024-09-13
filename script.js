@@ -304,7 +304,7 @@ listStyleElement.textContent = listStyleStyles;
 document.head.appendChild(listStyleElement);
 
 // Replace background images
-document.querySelector('header').style.backgroundImage = `url('${getImgSrc('/assets/images/space-bg-1.jpg')}')`;
+document.querySelector('header').style.backgroundImage = `url('${getImgSrc('/assets/images/space-bg-1.png')}')`;
 document.querySelector('section.solar-system-overview').style.backgroundImage = `url('${getImgSrc('/assets/images/space-8bit-bg.jpg')}')`;
 document.querySelector('footer').style.backgroundImage = `url('${getImgSrc('/assets/images/space-8bit-bg.jpg')}')`;
 
